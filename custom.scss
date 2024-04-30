@@ -1,0 +1,76 @@
+/*-- scss:rules --*/
+
+// Code configurations ----------------------------
+
+// code for in the block
+.sourceCode {
+  font-size: 0.7rem;
+}
+
+// code in text
+code {
+  font-size: 1rem;
+}
+
+// results of running codes
+pre div code {
+  font-size: 0.7rem;
+}
+
+// Header ----------------------------
+
+.reveal h2 {
+  font-size: 1.8rem;
+  color: #eb4f34;
+}
+
+.reveal h2 code {
+  font-size: 1.8rem;
+}
+
+.reveal h3 {
+  font-size: 1.4rem;
+}
+
+// call-out box configurations
+.reveal .callout.callout-style-default div.callout-title {
+  font-size: 1.2rem;
+}
+
+.reveal .callout.callout-style-default div.callout-content {
+  font-size: 1rem;
+}
+
+
+
+.content-box-blue {
+  background-color: #F0F8FF;
+}
+
+.content-box-gray {
+  background-color: #e2e2e2;
+}
+
+.content-box-grey {
+  background-color: #F5F5F5;
+}
+
+.content-box-army {
+  background-color: #737a36;
+}
+
+.content-box-green {
+  background-color: #d9edc2;
+}
+
+.content-box-purple {
+  background-color: #e2e2f9;
+}
+
+.content-box-red {
+  background-color: #ffcccc;
+}
+
+.content-box-yellow {
+  background-color: #fef5c4;
+}

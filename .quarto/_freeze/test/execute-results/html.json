@@ -1,0 +1,21 @@
+{
+  "hash": "fe8f97363a10a6d8a31d5304f7ee0962",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: Pairing {quarto-shinylive} and {quarto-webr}\nformat:\n  revealjs:\n    theme: [default, custom.scss]\n    fontsize: 1em\n    callout-icon: false\n    scrollable: true\n    echo: true\n    resources: \n      - shinylive-sw.js\nengine: knitr\nwebr:\n  packages: ['ggplot2', 'dplyr', 'sf', 'data.table'] # Install R packages on document open\n# autoload-packages: false       # Disable automatic loading of packages\n# show-startup-message: false    # Disable displaying status of webR initialization\n  cell-options:\n    editor-font-scale: 0.7\nfilters:\n  - webr\n  - shinylive\n---\n\n\n## `{quarto-shinylive}`\n\n```{shinylive-r}\n#| standalone: true\nlibrary(shiny)\n\nui <- fluidPage(\n   titlePanel(\"Hello Shiny!\")\n)\n\nserver <- function(input, output, session) {\n  # code\n}\n\nshinyApp(ui, server)\n```\n\n## `{quarto-webr}`\n\n```{webr-r}\nprint(\"hello quarto-webr world!\")\n```\n",
+    "supporting": [
+      "test_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

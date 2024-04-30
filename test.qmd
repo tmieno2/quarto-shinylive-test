@@ -1,0 +1,45 @@
+---
+title: Pairing {quarto-shinylive} and {quarto-webr}
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    fontsize: 1em
+    callout-icon: false
+    scrollable: true
+    echo: true
+    resources: 
+      - shinylive-sw.js
+engine: knitr
+webr:
+  packages: ['ggplot2', 'dplyr', 'sf', 'data.table'] # Install R packages on document open
+# autoload-packages: false       # Disable automatic loading of packages
+# show-startup-message: false    # Disable displaying status of webR initialization
+  cell-options:
+    editor-font-scale: 0.7
+filters:
+  - webr
+  - shinylive
+---
+
+## `{quarto-shinylive}`
+
+```{shinylive-r}
+#| standalone: true
+library(shiny)
+
+ui <- fluidPage(
+   titlePanel("Hello Shiny!")
+)
+
+server <- function(input, output, session) {
+  # code
+}
+
+shinyApp(ui, server)
+```
+
+## `{quarto-webr}`
+
+```{webr-r}
+print("hello quarto-webr world!")
+```
